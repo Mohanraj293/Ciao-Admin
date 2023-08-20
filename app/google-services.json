@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "924877746365",
+    "firebase_url": "https://ciao-taxi-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ciao-taxi",
+    "storage_bucket": "ciao-taxi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924877746365:android:2dee12948e4410d25c87d4",
+        "android_client_info": {
+          "package_name": "com.lazymohan.ciaoadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924877746365-vpfcqp6ovjg6l80s19ujncor1duss4ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnoVBNZogsH21qBuwRwSyPVg84ADt_1Mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924877746365-vpfcqp6ovjg6l80s19ujncor1duss4ug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
