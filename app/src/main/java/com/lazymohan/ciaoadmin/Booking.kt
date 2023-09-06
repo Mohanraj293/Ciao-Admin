@@ -4,8 +4,7 @@ data class Booking(
   val createdAt: String? = null,
   val from: String? = null,
   val id: String? = null,
-  @field:JvmField
-  val isPickupCompleted: Boolean = false,
+  @field:JvmField val isPickupCompleted: Boolean = false,
   val name: String? = null,
   val phoneNumber: String? = null,
   val pickUpDate: String? = null,

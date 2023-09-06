@@ -1,5 +1,8 @@
 package com.lazymohan.ciaoadmin
 
+import android.annotation.SuppressLint
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -18,6 +21,9 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.lazymohan.ciaoadmin.databinding.ActivityMainBinding
 import com.lazymohan.ciaoadmin.details.BookingDetails.Companion.getCallingIntent
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity(), ClickListener, ValueEventListener, MenuProvider {
 
@@ -61,21 +67,12 @@ class MainActivity : AppCompatActivity(), ClickListener, ValueEventListener, Men
     startActivity(
       getCallingIntent(
         context = this,
-        id = item.id,
-        name = item.name,
-        from = item.from,
-        to = item.to,
-        pickDate = item.pickUpDate,
-        isPickupCompleted = item.isPickupCompleted,
-        pickTime = item.pickUptime,
-        vType = item.vType,
-        phoneNumber = item.phoneNumber,
-        takeRide = item.takeRide,
-        createdAt = item.createdAt
+        id = item.id.toString(),
       )
     )
   }
 
+  @SuppressLint("SimpleDateFormat")
   override fun onDataChange(snapshot: DataSnapshot) {
     if (snapshot.exists()) {
       bookingsList.clear()
@@ -87,11 +84,13 @@ class MainActivity : AppCompatActivity(), ClickListener, ValueEventListener, Men
           bookingsList.clear()
         }
       }
-      adapter.setData(bookingsList)
+      adapter.setData(bookingsList.sortedByDescending {
+        SimpleDateFormat("dd/MM/yyyy HH:mm").parse(it.createdAt!!)
+      })
     }
   }
 
   override fun onCancelled(error: DatabaseError) {
-    Snackbar.make(binding.root, "Something went wrong..!", Snackbar.LENGTH_LONG).show()
+    Snackbar.make(binding.root, "Error -> $error", Snackbar.LENGTH_LONG).show()
   }
 }
