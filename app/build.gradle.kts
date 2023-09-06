@@ -10,7 +10,7 @@ android {
 
   defaultConfig {
     applicationId = "com.lazymohan.ciaoadmin"
-    minSdk = 24
+    minSdk = 26
     targetSdk = 33
     versionCode = 1
     versionName = "1.0"
@@ -21,17 +21,25 @@ android {
   }
 
   buildTypes {
-    release {
+    debug {
+      isDebuggable = true
       isMinifyEnabled = false
+      isShrinkResources = false
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+    }
+    release {
+      isDebuggable = true
+      isMinifyEnabled = false
+      isShrinkResources = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
   }
   kotlinOptions {
-    jvmTarget = "17"
+    jvmTarget = "11"
   }
 }
 
