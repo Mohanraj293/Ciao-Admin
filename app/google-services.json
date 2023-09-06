@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "924877746365",
-    "firebase_url": "https://ciao-taxi-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "ciao-taxi",
-    "storage_bucket": "ciao-taxi.appspot.com"
+    "project_number": "992037782511",
+    "firebase_url": "https://ciao-9e33a-default-rtdb.firebaseio.com",
+    "project_id": "ciao-9e33a",
+    "storage_bucket": "ciao-9e33a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:924877746365:android:2dee12948e4410d25c87d4",
+        "mobilesdk_app_id": "1:992037782511:android:64f203a1fb254033746c1a",
         "android_client_info": {
           "package_name": "com.lazymohan.ciaoadmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "924877746365-vpfcqp6ovjg6l80s19ujncor1duss4ug.apps.googleusercontent.com",
+          "client_id": "992037782511-eku5bfdpgdek8e8jmd50idpmrs7gurvr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDnoVBNZogsH21qBuwRwSyPVg84ADt_1Mw"
+          "current_key": "AIzaSyAlxS7gn65HdDjULH8IgboExyfoNCIT9bY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "924877746365-vpfcqp6ovjg6l80s19ujncor1duss4ug.apps.googleusercontent.com",
+              "client_id": "992037782511-eku5bfdpgdek8e8jmd50idpmrs7gurvr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
