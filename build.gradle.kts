@@ -5,18 +5,6 @@ plugins {
   id("com.google.gms.google-services") version "4.3.15" apply false
 }
 
-buildscript {
-  dependencies {
-    val kotlinVersion = "1.7.20"
-    classpath("com.android.tools.build:gradle:7.4.2")
-    classpath("com.google.gms:google-services:4.3.10")
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    classpath("de.mannodermaus.gradle.plugins:android-junit5:1.8.2.0")
-    classpath("com.google.firebase:perf-plugin:1.4.1")
-    classpath("org.jacoco:org.jacoco.core:0.8.8")
-  }
-}
-
 allprojects {
   repositories {
     mavenCentral()
