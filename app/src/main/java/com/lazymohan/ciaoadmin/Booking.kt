@@ -12,6 +12,8 @@ data class Booking(
   val takeRide: Int = 0,
   val to: String? = null,
   val vType: String? = null,
+  val driverName: String? = null,
+  val driverNum: String? = null,
 ) {
   fun toMap(): Map<String, Any?> {
     return mapOf(
@@ -26,6 +28,8 @@ data class Booking(
       "id" to id,
       "takeRide" to takeRide,
       "createdAt" to createdAt,
+      "driverName" to driverName,
+      "driverNum" to driverNum
     )
   }
 }

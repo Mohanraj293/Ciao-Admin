@@ -8,5 +8,6 @@ import com.lazymohan.ciaoadmin.details.Status.LOADING
  */
 data class BookingState(
   val status : Status = LOADING,
-  val booking: Booking? = null
+  val booking: Booking? = null,
+  val errorMsg: String? = null
 )

@@ -32,13 +32,11 @@ class BookingsAdapter(
 
   inner class BookingViewHolder(private val binding: BookingItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    fun setData(item: Booking) {
+    @SuppressLint("SetTextI18n") fun setData(item: Booking) {
       binding.name.text = item.name
       binding.from.text = "From: ${item.from}"
       binding.to.text = "To: ${item.to}"
-      binding.vType.text = "Type: ${item.vType}"
       binding.pickDate.text = "PickDate :${item.pickUpDate} ${item.pickUptime}"
-      binding.phoneNumber.text = "Phone Number ${item.phoneNumber}"
       binding.root.setOnClickListener {
         listener.onItemClick(item)
       }
