@@ -1,7 +1,5 @@
 package com.lazymohan.ciaoadmin.details
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.database.ktx.database
@@ -12,20 +10,18 @@ import com.lazymohan.ciaoadmin.details.Status.LOADING
 import com.lazymohan.ciaoadmin.details.Status.SUCCESS
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * Created by Mohanraj R on 19/08/23.
- */
 class BookingViewModel : ViewModel() {
-
-  private var _bookingValue = MutableLiveData<BookingState>()
-  val booking: LiveData<BookingState> = _bookingValue
+  private var _uiState = MutableStateFlow(BookingState())
+  val uiState = _uiState.asStateFlow()
 
   private val databaseReference = Firebase.database.reference
 
   init {
-    _bookingValue.value = BookingState(status = LOADING)
+    _uiState.value = BookingState(status = LOADING)
   }
 
   fun readData(id: String) {
@@ -33,13 +29,13 @@ class BookingViewModel : ViewModel() {
       delay(500)
       databaseReference.child("bookings").child(id).get()
         .addOnSuccessListener {
-          _bookingValue.value = BookingState(
+          _uiState.value = BookingState(
             status = SUCCESS,
             booking = it.getValue(Booking::class.java)
           )
         }
         .addOnFailureListener {
-          _bookingValue.value = BookingState(
+          _uiState.value = BookingState(
             status = ERROR,
             errorMsg = it.message
           )
@@ -49,7 +45,7 @@ class BookingViewModel : ViewModel() {
 
   fun takeRide(id: String, driverName: String, driverNum: String) {
     viewModelScope.launch(Dispatchers.IO) {
-      val booking = _bookingValue.value!!.booking
+      val booking = _uiState.value.booking
       if (booking != null) {
         databaseReference.updateChildren(
           mutableMapOf(
@@ -76,7 +72,7 @@ class BookingViewModel : ViewModel() {
 
   fun completeRide(id: String) {
     viewModelScope.launch(Dispatchers.IO) {
-      val booking = _bookingValue.value!!.booking
+      val booking = _uiState.value.booking
       if (booking != null) {
         databaseReference.updateChildren(
           mutableMapOf(

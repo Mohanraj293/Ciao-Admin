@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.DatabaseReference
 import com.lazymohan.ciaoadmin.Booking
 import com.lazymohan.ciaoadmin.R
 import com.lazymohan.ciaoadmin.databinding.ActivityBookingDetailsBinding
@@ -38,7 +37,7 @@ class BookingDetails : AppCompatActivity() {
     binding = ActivityBookingDetailsBinding.inflate(layoutInflater)
     setContentView(binding.root)
     binding.toolbar.title = "Pickup Details"
-    bookingViewModel.booking.observe(this) {
+    bookingViewModel.uiState.value.let {
       when (it.status) {
         LOADING -> {
           binding.progressBar.isVisible = true
