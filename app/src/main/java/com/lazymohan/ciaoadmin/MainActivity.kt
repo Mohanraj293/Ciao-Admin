@@ -1,8 +1,6 @@
 package com.lazymohan.ciaoadmin
 
 import android.annotation.SuppressLint
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -22,8 +20,6 @@ import com.google.firebase.ktx.Firebase
 import com.lazymohan.ciaoadmin.databinding.ActivityMainBinding
 import com.lazymohan.ciaoadmin.details.BookingDetails.Companion.getCallingIntent
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity(), ClickListener, ValueEventListener, MenuProvider {
 
