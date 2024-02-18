@@ -5,6 +5,8 @@ plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
   id("com.google.gms.google-services")
+  id("com.google.dagger.hilt.android")
+  kotlin("kapt")
 }
 
 android {
@@ -32,6 +34,9 @@ android {
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables {
+      useSupportLibrary = true
+    }
   }
 
   buildTypes {
@@ -57,6 +62,11 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = "1.5.9"
   }
+  packaging {
+    resources {
+      excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    }
+  }
 }
 
 dependencies {
@@ -65,6 +75,9 @@ dependencies {
   implementation("androidx.constraintlayout:constraintlayout:2.1.4")
   implementation("androidx.core:core-ktx:1.12.0")
   implementation("androidx.activity:activity-ktx:1.8.2")
+  implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+  implementation("androidx.compose.material:material:1.6.1")
+  implementation("androidx.compose.material3:material3:1.2.0")
 
 
   testImplementation("junit:junit:4.13.2")
@@ -95,10 +108,19 @@ dependencies {
   implementation("androidx.compose.ui:ui")
   implementation("androidx.compose.ui:ui-graphics")
   implementation("androidx.compose.ui:ui-tooling-preview")
+  androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
   debugImplementation("androidx.compose.ui:ui-tooling")
   androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
   androidTestImplementation("androidx.compose.ui:ui-test-junit4")
   debugImplementation("androidx.compose.ui:ui-test-manifest")
 
   implementation("com.microsoft.design:fluent-system-icons:1.1.201@aar")
+
+  //hilt dagger
+  implementation("com.google.dagger:hilt-android:2.44")
+  kapt("com.google.dagger:hilt-android-compiler:2.44")
+}
+
+kapt {
+  correctErrorTypes = true
 }
