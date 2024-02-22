@@ -97,7 +97,7 @@ dependencies {
   implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
   //Tarka UI Kit
-  implementation("com.tarkalabs:tarkaui:1.0.8")
+  implementation("com.tarkalabs:tarkaui:1.1.2")
   implementation("com.tarkalabs:tarkaui-icons:1.0.0")
 
   //jetpack compose
